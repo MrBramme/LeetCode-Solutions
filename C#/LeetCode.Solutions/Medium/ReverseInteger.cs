@@ -9,8 +9,7 @@ namespace LeetCode.Solutions.Medium
         {
             var charArray = x.ToString().Replace("-", "").ToCharArray();
             Array.Reverse(charArray, 0, charArray.Length);
-            var res = 0;
-            int.TryParse(new string(charArray), out res);
+            int.TryParse(new string(charArray), out var res);
             return x >= 0 ? res : res * -1;
         }
     }
