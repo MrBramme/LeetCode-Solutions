@@ -6,27 +6,28 @@ using System.Diagnostics;
 
 namespace LeetCode.Solutions.Tests.Easy
 {
-    public class NumberOfWordsInSentenceUnitTest
+    public class NumberOfValidWordsInSentenceUnitTest
     {
-        private NumberOfWordsInSentence _sut;
+        private NumberOfValidWordsInSentence _sut;
         private Stopwatch _stopwatch;
 
         [SetUp]
         public void Setup()
         {
-            _sut = new NumberOfWordsInSentence();
+            _sut = new NumberOfValidWordsInSentence();
             _stopwatch = new Stopwatch();
         }
 
-        [TestCase(new[] { "alice and bob love leetcode", "i think so too", "this is great thanks very much"}, 6)]
-        [TestCase(new[] { "please wait", "continue to fight", "continue to win" }, 3)]
-        public void MostWordsFound_GivenExample_ShouldReturnExpected(string[] input, int expected)
+        [TestCase("cat and  dog", 3)]
+        [TestCase("!this  1-s b8d!", 0)]
+        [TestCase("alice and  bob are playing stone-game10", 5)]
+        public void CountValidWords_GivenExample_ShouldReturnExpected(string input, int expected)
         {
             // Given
 
             // When
             _stopwatch.Start();
-            var result = _sut.MostWordsFound(input);
+            var result = _sut.CountValidWords(input);
             _stopwatch.Stop();
 
             // Then
